@@ -80,7 +80,7 @@ function parseSyllable(syl){
     let middle = '';
     let end = '';
 
-    if(syl.length >= 2 && syl.length <= 7) {
+    if(syl.length >= 1 && syl.length <= 7) {
         let place = 0;
         if (vowels.includes(syl[0])) {
             first = '';
@@ -220,7 +220,6 @@ function decodeLetters(letters){
         'p': 26,
         'h': 27
     };
-
     return [firstLetter[letters[0]], secondLetter[letters[1]], thirdLetter[letters[2]]];
 }
 
