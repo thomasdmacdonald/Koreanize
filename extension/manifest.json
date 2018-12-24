@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+
+    "name": "Koreanize",
+    "description": "Converts romanized korean text to hangul characters.",
+    "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "images/han_128.png",
+    "default_popup": "popup.html",
+    "default_title": "Koreanize Text"
+  },
+
+  "icons": {
+    "128": "images/han_128.png",
+    "48": "images/han_48.png",
+    "16": "images/han_16.png"
+  }
+}
