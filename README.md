@@ -14,13 +14,13 @@ d - ᄃ
 
 dd - ᄄ
 
-l - ᄅ
+l/r - ᄅ
 
 m - ᄆ
 
 b - ᄇ
 
-bb - ᄈ
+bb/pp - ᄈ
 
 s - ᄉ
 
@@ -50,11 +50,11 @@ ya -ᅣ
 
 yae -ᅤ
 
-eo -ᅥ
+eo/ou -ᅥ
 
 e -ᅦ
 
-yeo -ᅧ
+yeo/ou -ᅧ
 
 ye -ᅨ
 
@@ -74,7 +74,7 @@ weo - ᅯ
 
 we - ᅰ
 
-wi - ᅱ
+wi/wee - ᅱ
 
 yu or yoo - ᅲ
 
@@ -82,4 +82,4 @@ eu - ᅳ
 
 eui - ᅴ
 
-i - ᅵ
+i/ee - ᅵ

@@ -135,7 +135,7 @@ function parseSyllable(syl){
  * @returns {boolean}   whether the syllable is valid
  */
 function valid(string){
-    return /^((?:g)|(?:gg)|(?:n)|(?:d)|(?:dd)|(?:l)|(?:m)|(?:b)|(?:bb)|(?:s)|(?:ss)|(?:j)|(?:jj)|(?:ch)|(?:k)|(?:t)|(?:p)|(?:h))?((?:a)|(?:ae)|(?:ya)|(?:yae)|(?:eo)|(?:e)|(?:yeo)|(?:ye)|(?:o)|(?:wa)|(?:wae)|(?:oi)|(?:yo)|(?:u)|(?:oo)|(?:weo)|(?:we)|(?:wi)|(?:yu)|(?:yoo)|(?:eu)|(?:eui)|(?:i))((?:g)|(?:gg)|(?:gs)|(?:n)|(?:nj)|(?:nh)|(?:d)|(?:l)|(?:lg)|(?:lm)|(?:lb)|(?:ls)|(?:lt)|(?:lp)|(?:lh)|(?:m)|(?:b)|(?:bs)|(?:s)|(?:ss)|(?:ng)|(?:j)|(?:ch)|(?:k)|(?:t)|(?:p)|(?:h))?$/.test(string);
+    return /^((?:g)|(?:gg)|(?:n)|(?:d)|(?:dd)|(?:l)|(?:r)|(?:m)|(?:b)|(?:bb)|(?:pp)|(?:s)|(?:ss)|(?:j)|(?:jj)|(?:ch)|(?:k)|(?:t)|(?:p)|(?:h))?((?:a)|(?:ae)|(?:ya)|(?:yae)|(?:eo)|(?:ou)|(?:e)|(?:yeo)|(?:you)|(?:ye)|(?:o)|(?:wa)|(?:wae)|(?:oi)|(?:yo)|(?:u)|(?:oo)|(?:weo)|(?:we)|(?:wi)|(?:wee)|(?:yu)|(?:yoo)|(?:eu)|(?:eui)|(?:i)|(?:ee))((?:g)|(?:gg)|(?:gs)|(?:n)|(?:nj)|(?:nh)|(?:d)|(?:l)|(?:lg)|(?:lm)|(?:lb)|(?:ls)|(?:lt)|(?:lp)|(?:lh)|(?:r)|(?:rg)|(?:rm)|(?:rb)|(?:rs)|(?:rt)|(?:rp)|(?:rh)|(?:m)|(?:b)|(?:bs)|(?:s)|(?:ss)|(?:ng)|(?:j)|(?:ch)|(?:k)|(?:t)|(?:p)|(?:h))?$/.test(string);
 }
 
 /**
@@ -151,9 +151,11 @@ function decodeLetters(letters){
         'd': 3,
         'dd': 4,
         'l': 5,
+        'r': 5,
         'm': 6,
         'b': 7,
         'bb': 8,
+        'pp': 8,
         's': 9,
         'ss': 10,
         '': 11,
@@ -171,8 +173,10 @@ function decodeLetters(letters){
         'ya': 2,
         'yae': 3,
         'eo': 4,
+        'ou': 4,
         'e': 5,
         'yeo': 6,
+        'you': 6,
         'ye': 7,
         'o': 8,
         'wa': 9,
@@ -184,10 +188,12 @@ function decodeLetters(letters){
         'weo': 14,
         'we': 15,
         'wi': 16,
+        'wee': 16,
         'yu': 17,
         'yoo': 17,
         'eu': 18,
         'eui': 19,
+        'ee': 20,
         'i': 20
     };
     let thirdLetter = {
@@ -207,6 +213,14 @@ function decodeLetters(letters){
         'lt': 13,
         'lp': 14,
         'lh': 15,
+        'r': 8,
+        'rg': 9,
+        'rm': 10,
+        'rb': 11,
+        'rs': 12,
+        'rt': 13,
+        'rp': 14,
+        'rh': 15,
         'm': 16,
         'b': 17,
         'bs': 18,
