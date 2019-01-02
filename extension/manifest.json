@@ -6,14 +6,14 @@
     "version": "1.0",
 
   "browser_action": {
-    "default_icon": "images/han_128.png",
+    "default_icon": "images/icon_48.png",
     "default_popup": "popup.html",
     "default_title": "Koreanize Text"
   },
 
   "icons": {
-    "128": "images/han_128.png",
-    "48": "images/han_48.png",
-    "16": "images/han_16.png"
+    "128": "images/icon_128.png",
+    "48": "images/icon_48.png",
+    "16": "images/icon_16.png"
   }
 }
