@@ -3,10 +3,10 @@
 <head>
     <style>
         .button{
-            background-color: #FF775B;
+            background-color: #7cabd6;
             border: black;
             border-radius: 7px;
-            color: white;
+            color: ghostwhite;
             padding: 2px 15px;
             font-size: 14px;
             text-align: center;
@@ -15,6 +15,7 @@
         }
 
         .textbox1{
+            background-color: ghostwhite;
             border-radius: 7px;
             white-space: nowrap;
             outline: none;
@@ -25,10 +26,13 @@
             padding-top: 10px;
             border: none;
             outline: none;
+            color: slategrey;
+            font-style: italic;
+            font-weight: lighter;
         }
 
         div.container{
-            width: 275px;
+            width: 267px;
         }
     </style>
     <meta charset="UTF-8">
@@ -38,7 +42,7 @@
 <body>
     <div class="container"></div>
     <input class="textbox1" id="userinput" autofocus>
-    <button id="translate" class="button" type="button">Koreanize!</button>
-    <input id="display" value="Type in romanized text to translate!" type="text" readonly class="textbox2" size="40">
+    <button id="translate" class="button" type="button">Koreanize</button>
+    <input id="display" value="Type in romanized text to translate!" type="text" readonly class="textbox2" size="34">
 </body>
 </html>
