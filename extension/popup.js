@@ -1,3 +1,94 @@
+let firstLetter = {
+    'g': 0,
+    'gg': 1,
+    'n': 2,
+    'd': 3,
+    'dd': 4,
+    'l': 5,
+    'r': 5,
+    'm': 6,
+    'b': 7,
+    'bb': 8,
+    'pp': 8,
+    's': 9,
+    'ss': 10,
+    '': 11,
+    'j': 12,
+    'jj': 13,
+    'ch': 14,
+    'k': 15,
+    't': 16,
+    'p': 17,
+    'h': 18
+};
+let secondLetter = {
+    'a': 0,
+    'ae': 1,
+    'ya': 2,
+    'yae': 3,
+    'eo': 4,
+    'ou': 4,
+    'e': 5,
+    'yeo': 6,
+    'you': 6,
+    'ye': 7,
+    'o': 8,
+    'wa': 9,
+    'wae': 10,
+    'oi': 11,
+    'yo': 12,
+    'u': 13,
+    'oo': 13,
+    'weo': 14,
+    'we': 15,
+    'wi': 16,
+    'wee': 16,
+    'yu': 17,
+    'yoo': 17,
+    'eu': 18,
+    'eui': 19,
+    'ee': 20,
+    'i': 20
+};
+let thirdLetter = {
+    '': 0,
+    'g': 1,
+    'gg': 2,
+    'gs': 3,
+    'n': 4,
+    'nj': 5,
+    'nh': 6,
+    'd': 7,
+    'l': 8,
+    'lg': 9,
+    'lm': 10,
+    'lb': 11,
+    'ls': 12,
+    'lt': 13,
+    'lp': 14,
+    'lh': 15,
+    'r': 8,
+    'rg': 9,
+    'rm': 10,
+    'rb': 11,
+    'rs': 12,
+    'rt': 13,
+    'rp': 14,
+    'rh': 15,
+    'm': 16,
+    'b': 17,
+    'bs': 18,
+    's': 19,
+    'ss': 20,
+    'ng': 21,
+    'j': 22,
+    'ch': 23,
+    'k': 24,
+    't': 25,
+    'p': 26,
+    'h': 27
+};
+
 /**
  * Listen for button click or enter press
  */
@@ -134,8 +225,35 @@ function parseSyllable(syl){
  * @param string :  input syllable
  * @returns {boolean}   whether the syllable is valid
  */
-function valid(string){
-    return /^((?:g)|(?:gg)|(?:n)|(?:d)|(?:dd)|(?:l)|(?:r)|(?:m)|(?:b)|(?:bb)|(?:pp)|(?:s)|(?:ss)|(?:j)|(?:jj)|(?:ch)|(?:k)|(?:t)|(?:p)|(?:h))?((?:a)|(?:ae)|(?:ya)|(?:yae)|(?:eo)|(?:ou)|(?:e)|(?:yeo)|(?:you)|(?:ye)|(?:o)|(?:wa)|(?:wae)|(?:oi)|(?:yo)|(?:u)|(?:oo)|(?:weo)|(?:we)|(?:wi)|(?:wee)|(?:yu)|(?:yoo)|(?:eu)|(?:eui)|(?:i)|(?:ee))((?:g)|(?:gg)|(?:gs)|(?:n)|(?:nj)|(?:nh)|(?:d)|(?:l)|(?:lg)|(?:lm)|(?:lb)|(?:ls)|(?:lt)|(?:lp)|(?:lh)|(?:r)|(?:rg)|(?:rm)|(?:rb)|(?:rs)|(?:rt)|(?:rp)|(?:rh)|(?:m)|(?:b)|(?:bs)|(?:s)|(?:ss)|(?:ng)|(?:j)|(?:ch)|(?:k)|(?:t)|(?:p)|(?:h))?$/.test(string);
+function valid(string) {
+    let regex = '^';
+    regex += '(';
+    for (let key in firstLetter) {
+        if (key !== '') {
+            regex += '(?:' + key + ')|';
+        }
+    }
+    regex = regex.substring(0, regex.length - 1);
+    regex += ')?';
+
+    regex += '(';
+    for (let key in secondLetter) {
+        regex += '(?:' + key + ')|';
+    }
+    regex = regex.substring(0, regex.length - 1);
+    regex += ')';
+
+    regex += '(';
+    for (let key in thirdLetter) {
+        if (key !== '') {
+            regex += '(?:' + key + ')|';
+        }
+    }
+    regex = regex.substring(0, regex.length - 1);
+    regex += ')?$';
+
+    let testReg = new RegExp(regex, 'i');
+    return testReg.test(string);
 }
 
 /**
@@ -144,97 +262,7 @@ function valid(string){
  * @returns {*[]} :     array of integers
  */
 function decodeLetters(letters){
-    let firstLetter = {
-        'g': 0,
-        'gg': 1,
-        'n': 2,
-        'd': 3,
-        'dd': 4,
-        'l': 5,
-        'r': 5,
-        'm': 6,
-        'b': 7,
-        'bb': 8,
-        'pp': 8,
-        's': 9,
-        'ss': 10,
-        '': 11,
-        'j': 12,
-        'jj': 13,
-        'ch': 14,
-        'k': 15,
-        't': 16,
-        'p': 17,
-        'h': 18
-    };
-    let secondLetter = {
-        'a': 0,
-        'ae': 1,
-        'ya': 2,
-        'yae': 3,
-        'eo': 4,
-        'ou': 4,
-        'e': 5,
-        'yeo': 6,
-        'you': 6,
-        'ye': 7,
-        'o': 8,
-        'wa': 9,
-        'wae': 10,
-        'oi': 11,
-        'yo': 12,
-        'u': 13,
-        'oo': 13,
-        'weo': 14,
-        'we': 15,
-        'wi': 16,
-        'wee': 16,
-        'yu': 17,
-        'yoo': 17,
-        'eu': 18,
-        'eui': 19,
-        'ee': 20,
-        'i': 20
-    };
-    let thirdLetter = {
-        '': 0,
-        'g': 1,
-        'gg': 2,
-        'gs': 3,
-        'n': 4,
-        'nj': 5,
-        'nh': 6,
-        'd': 7,
-        'l': 8,
-        'lg': 9,
-        'lm': 10,
-        'lb': 11,
-        'ls': 12,
-        'lt': 13,
-        'lp': 14,
-        'lh': 15,
-        'r': 8,
-        'rg': 9,
-        'rm': 10,
-        'rb': 11,
-        'rs': 12,
-        'rt': 13,
-        'rp': 14,
-        'rh': 15,
-        'm': 16,
-        'b': 17,
-        'bs': 18,
-        's': 19,
-        'ss': 20,
-        'ng': 21,
-        'j': 22,
-        'ch': 23,
-        'k': 24,
-        't': 25,
-        'p': 26,
-        'h': 27
-    };
-    return [firstLetter[letters[0]], secondLetter[letters[1]], thirdLetter[letters[2]]];
+    return [firstLetter[letters[0].toLowerCase()], secondLetter[letters[1].toLowerCase()], thirdLetter[letters[2].toLowerCase()]];
 }
 
 /**
